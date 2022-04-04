@@ -1,3 +1,5 @@
+const ArgumentType = require('../../extension-support/argument-type');
+const BlockType = require('../../extension-support/block-type');
 class MouseCursor {
     constructor(runtime) {
         this.runtime = runtime
@@ -5,40 +7,40 @@ class MouseCursor {
 
     getInfo() {
         return {
-            "id": "MouseCursor",
-            "name": "Cursor",
-            "blocks": [
+            id: 'MouseCursor',
+            name: 'Cursor',
+            blocks: [
                 {
-                    "opcode": "SwitchCur",
-                    "blockType": "command",
-                    "text": "switch cursor to [cur]",
-                    "arguments": {
-                        "cur": {
-                            "type": "string",
-                            "defaultValue": "pointer",
-                            "menu": "cursors"
+                    opcode: 'SwitchCur',
+                    blockType: BlockType.COMMAND,
+                    text: 'switch cursor to [cur]',
+                    arguments: {
+                        cur: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'pointer',
+                            menu: 'cursors'
                         },
                     },
                 },
                 {
-                    "opcode": "hide",
-                    "blockType": "command",
-                    "text": "hide cursor",
+                    opcode: 'hide',
+                    blockType: BlockType.COMMAND,
+                    text: 'hide cursor',
                 },
                 {
-                    "opcode": "reset",
-                    "blockType": "command",
-                    "text": "reset cursor",
+                    opcode: 'reset',
+                    blockType: 'command',
+                    text: 'reset cursor',
                 },
                 {
-                    "opcode": "GetCur",
-                    "blockType": "reporter",
-                    "text": "cursor",
+                    opcode: 'GetCur',
+                    blockType: BlockType.REPORTER,
+                    text: 'cursor',
                 },
             ],
 
-            "menus": {
-                "cursors": {
+            menus: {
+                cursors: {
                     acceptReporters: true, 
                     items: [{text:"default",value:"default"}, {text:"pointer",value:"pointer"}, {text:"crosshair",value:"crosshair"}, {text:"move",value:"move"}, {text:"text",value:"text"}, {text:"wait",value:"wait"}, {text:"progress",value:"progress"}, {text:"help",value:"help"}],
                 }
